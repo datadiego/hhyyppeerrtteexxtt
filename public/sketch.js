@@ -60,7 +60,7 @@ function setup(){
 function draw(){
     // do a linear interpolation of colors using sine
     if(main_val < 1){
-    main_val += 0.01;
+    main_val += 0.02;
     }
     if (main_val > 1) {
         wait_time += 1;
