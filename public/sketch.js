@@ -35,8 +35,22 @@ theme_7 = {
     'color': '#f7ba02',
     'background-color': '#2c0157',
 },
-
-
+theme_8 = {
+    'color': '#00ff00',
+    'background-color': '#000000',
+},
+theme_9 = {
+    'color': '#000000',
+    'background-color': '#ff0000',
+},
+theme_10 = {
+    'color': '#0000ff',
+    'background-color': '#ffff00',
+},
+theme_11 = {
+    'color': '#f70299',
+    'background-color': '#000000',
+},
 ]
 
 
