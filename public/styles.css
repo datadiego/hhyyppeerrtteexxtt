@@ -15,13 +15,18 @@
     align-items: center;
     justify-content: center;
   }
+  p{
+    font-size: 1.5vw;
+    line-height: 1.8vw;
+    font-family: 'Courier New', Courier, monospace;
+  }
   pre{
     font-family: monospace;
     font-size: 0.7vw;
     line-height: 0.85 vw;
     margin: 0;
     padding: 0;
-    border: 1px solid var(--secondary);
+    /* border: 1px solid var(--secondary); */
   }
   @media screen and (max-width: 600px) {
     pre{
