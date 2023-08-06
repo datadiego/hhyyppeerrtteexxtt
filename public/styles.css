@@ -17,15 +17,12 @@
 
   pre{
     font-size: 1vw;
-    /* line-height: 1.3vw; */
     margin: 0;
     padding: 0;
-    /* border: 1px solid var(--secondary); */
   }
   @media screen and (max-width: 600px) {
     pre{
-      font-size: 1.6vw;
-      /* line-height: 1.7vw; */
+      font-size: 1.7vw;
     }
 
   }
