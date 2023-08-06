@@ -1,12 +1,13 @@
 :root{
     --primary: cornsilk;
-    --secondary: blue;
+    --secondary: darkblue;
   }
   body{
     background-color: var(--primary);
     color: var(--secondary);
     font-family: 'Courier New', Courier, monospace;
-    font-size: 2vh;
+    font-weight: 800;
+
     /* line-height: 2vh; */
   }
   section{
@@ -15,15 +16,10 @@
     align-items: center;
     justify-content: center;
   }
-  p{
-    font-size: 1.5vw;
-    line-height: 1.8vw;
-    font-family: 'Courier New', Courier, monospace;
-  }
+
   pre{
-    font-family: monospace;
-    font-size: 0.7vw;
-    line-height: 0.85 vw;
+    font-size: 1vw;
+    line-height: 1.3vw;
     margin: 0;
     padding: 0;
     /* border: 1px solid var(--secondary); */
@@ -31,7 +27,7 @@
   @media screen and (max-width: 600px) {
     pre{
       font-size: 1.5vw;
-      line-height: 1.8vw;
+      /* line-height: 1.8vw; */
     }
 
   }
