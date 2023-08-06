@@ -7,8 +7,6 @@
     color: var(--secondary);
     font-family: 'Courier New', Courier, monospace;
     font-weight: 800;
-
-    /* line-height: 2vh; */
   }
   section{
     display: flex;
@@ -19,7 +17,7 @@
 
   pre{
     font-size: 1vw;
-    line-height: 1.3vw;
+    /* line-height: 1.3vw; */
     margin: 0;
     padding: 0;
     /* border: 1px solid var(--secondary); */
@@ -27,7 +25,7 @@
   @media screen and (max-width: 600px) {
     pre{
       font-size: 1.7vw;
-      line-height: 1.7vw;
+      /* line-height: 1.7vw; */
     }
 
   }
