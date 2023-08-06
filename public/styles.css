@@ -1,10 +1,5 @@
-:root{
-    --primary: cornsilk;
-    --secondary: darkblue;
-  }
+
   body{
-    background-color: var(--primary);
-    color: var(--secondary);
     font-family: 'Courier New', Courier, monospace;
     font-weight: 800;
     font-size: 1.3vw;

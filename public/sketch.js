@@ -1,31 +1,47 @@
 let body
 let main_val = 0
 let wait_time = 0
-
-let theme_0 = {
+let themes = [
+theme_0 = {
     'background-color': '#000000',
     'color': '#ffffff'
-}
-let theme_1 = {
+},
+theme_1 = {
     'background-color': '#ffffff',
     'color': '#000000'
-}
-let theme_2 = {
+},
+theme_2 = {
     'background-color': '#000000',
     'color': '#ff0000'
-}
-let theme_3 = {
+},
+theme_3 = {
     'background-color': '#fffccc',
     'color': '#0000ff'
-}
-let theme_4 = {
+},
+theme_4 = {
     'background-color': '#0000ff',
     'color': '#fffccc',
-}
+},
+theme_5 = {
+    'background-color': '#ffffff',
+    'color': '#f00783',
+},
+theme_6 = {
+    'background-color': '#f00783',
+    'color': '#ffffff',
+},
+theme_7 = {
+    'background-color': '#fffccc',
+    'color': '#0000ff',
+},
+theme_8 = {
+    'background-color': '#3c0059',
+    'color': '#00ff00',
+},
+
+]
 
 
-
-let themes = [theme_0, theme_1, theme_2, theme_3, theme_4]
 
 let current_theme
 let next_theme
@@ -34,7 +50,7 @@ function setup(){
     body = select('body');
     body.style('background-color', '#000000');
     body.style('color', '#ffffff');
-    current_theme = random(themes)
+    current_theme = themes[themes.length - 1]
     next_theme = random(themes)
     while(next_theme == current_theme){
         next_theme = random(themes)
@@ -59,4 +75,5 @@ function draw(){
     let c_text = lerpColor(color(current_theme['color']), color(next_theme['color']), main_val);
     body.style('background-color', c_back);
     body.style('color', c_text);
+
 }
