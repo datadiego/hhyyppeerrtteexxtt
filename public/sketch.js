@@ -1,4 +1,5 @@
 let body
+let a
 let main_val = 0
 let wait_time = 0
 let themes = [
@@ -31,13 +32,10 @@ theme_6 = {
     'color': '#ffffff',
 },
 theme_7 = {
-    'background-color': '#fffccc',
-    'color': '#0000ff',
+    'color': '#f7ba02',
+    'background-color': '#2c0157',
 },
-theme_8 = {
-    'background-color': '#3c0059',
-    'color': '#00ff00',
-},
+
 
 ]
 
@@ -45,11 +43,28 @@ theme_8 = {
 
 let current_theme
 let next_theme
+
+function showLastTheme(){
+    // Show last added theme
+    body.style('background-color', themes[themes.length-1]['background-color'])
+    body.style('color', themes[themes.length-1]['color'])
+}
+
+function showTheme(index){
+    // Show this theme
+    if(index >= themes.length){
+        index = 0
+    }
+    body.style('background-color', themes[index]['background-color'])
+    body.style('color', themes[index]['color'])
+}
 function setup(){
     noCanvas();
+    a = select("a")
     body = select('body');
     body.style('background-color', '#000000');
     body.style('color', '#ffffff');
+    a.style('color', '#ffffff');
     current_theme = themes[themes.length - 1]
     next_theme = random(themes)
     while(next_theme == current_theme){
@@ -60,11 +75,11 @@ function setup(){
 function draw(){
     // do a linear interpolation of colors using sine
     if(main_val < 1){
-    main_val += 0.02;
+    main_val += 0.005;
     }
     if (main_val > 1) {
         wait_time += 1;
-        if(wait_time > 100){
+        if(wait_time > 5){
             main_val = 0;
             wait_time = 0;
             current_theme = next_theme;
@@ -75,5 +90,6 @@ function draw(){
     let c_text = lerpColor(color(current_theme['color']), color(next_theme['color']), main_val);
     body.style('background-color', c_back);
     body.style('color', c_text);
+    a.style('color', c_text);
 
 }
