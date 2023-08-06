@@ -14,13 +14,15 @@
     align-items: center;
     justify-content: center;
   }
-
   pre{
-    font-size: 1vw;
+    font-size: 1.3vw;
   }
-  @media screen and (max-width: 600px) {
+
+  @media screen and (max-width: 850px) {
     pre{
       font-size: 1.6vw;
     }
-
   }
+
+
+
