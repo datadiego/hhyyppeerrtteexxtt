@@ -79,7 +79,8 @@ function setup(){
     body.style('background-color', '#000000');
     body.style('color', '#ffffff');
     a.style('color', '#ffffff');
-    current_theme = themes[themes.length - 1]
+    // current_theme = themes[themes.length - 1]
+    current_theme = random(themes)
     next_theme = random(themes)
     while(next_theme == current_theme){
         next_theme = random(themes)
@@ -89,11 +90,11 @@ function setup(){
 function draw(){
     // do a linear interpolation of colors using sine
     if(main_val < 1){
-    main_val += 0.005;
+    main_val += 0.01;
     }
     if (main_val > 1) {
         wait_time += 1;
-        if(wait_time > 5){
+        if(wait_time > 200){
             main_val = 0;
             wait_time = 0;
             current_theme = next_theme;
