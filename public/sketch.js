@@ -72,13 +72,14 @@ function showTheme(index){
     body.style('background-color', themes[index]['background-color'])
     body.style('color', themes[index]['color'])
 }
+
 function setup(){
     noCanvas();
-    a = select("a")
+    a = selectAll("a")
     body = select('body');
     body.style('background-color', '#000000');
     body.style('color', '#ffffff');
-    a.style('color', '#ffffff');
+    // a.style('color', '#ffffff');
     // current_theme = themes[themes.length - 1]
     current_theme = random(themes)
     next_theme = random(themes)
@@ -105,6 +106,9 @@ function draw(){
     let c_text = lerpColor(color(current_theme['color']), color(next_theme['color']), main_val);
     body.style('background-color', c_back);
     body.style('color', c_text);
-    a.style('color', c_text);
+    
+    for(let i = 0; i < a.length; i++){
+        a[i].style('color', c_text);
+    }
 
 }

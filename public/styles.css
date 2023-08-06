@@ -11,11 +11,23 @@
     align-items: center;
     justify-content: center;
   }
-
+nav{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+a{
+  margin: 0 1vw;
+  font-size: 1vw;
+}
 
   @media screen and (max-width: 850px) {
     pre{
       font-size: 1.6vw;
+    }
+    a{
+      font-size: 4.6vw;
     }
   }
 
