@@ -3,6 +3,7 @@ let a
 let main_val = 0
 let wait_time = 0
 let limitHeight = 0
+let art
 let themes = [
 
 theme_0 = {
@@ -79,6 +80,7 @@ function setup(){
     noCanvas();
     a = selectAll("a")
     body = select('body');
+    art = select('pre');
     body.style('background-color', '#000000');
     body.style('color', '#ffffff');
     // a.style('color', '#ffffff');
