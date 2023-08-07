@@ -2,7 +2,9 @@ let body
 let a
 let main_val = 0
 let wait_time = 0
+let limitHeight = 0
 let themes = [
+
 theme_0 = {
     'background-color': '#000000',
     'color': '#ffffff'
@@ -81,27 +83,37 @@ function setup(){
     body.style('color', '#ffffff');
     // a.style('color', '#ffffff');
     // current_theme = themes[themes.length - 1]
-    current_theme = random(themes)
-    next_theme = random(themes)
-    while(next_theme == current_theme){
-        next_theme = random(themes)
+    // shuffle(themes, true)
+    limitHeight = document.body.scrollHeight - window.innerHeight
+    let seccion = limitHeight / themes.length
+    console.log(seccion, limitHeight, themes.length)
+    for(let i = 0; i < themes.length; i++){
+        themes[i]['height'] = seccion * i
     }
+    
 }
 
 function draw(){
-    // do a linear interpolation of colors using sine
-    if(main_val < 1){
-    main_val += 0.01;
-    }
-    if (main_val > 1) {
-        wait_time += 1;
-        if(wait_time > 200){
-            main_val = 0;
-            wait_time = 0;
-            current_theme = next_theme;
-            next_theme = random(themes);
+    // console.log(window.scrollY)
+    //check scrollY value, compare it with the themes array checking the height value, if it's bigger, change theme and update current_theme
+    if(window.scrollY > themes[themes.length - 1]['height']){
+        // console.log('change theme')
+        current_theme = themes[themes.length - 1]
+        next_theme = themes[0]
+        main_val = 0
+        wait_time = 0
+    }else{
+        for(let i = 0; i < themes.length; i++){
+            if(window.scrollY > themes[i]['height'] && window.scrollY < themes[i+1]['height']){
+                // console.log('change theme')
+                current_theme = themes[i]
+                next_theme = themes[i+1]
+                main_val = (window.scrollY - themes[i]['height']) / (themes[i+1]['height'] - themes[i]['height'])
+                wait_time = 0
+            }
         }
     }
+      
     let c_back = lerpColor(color(current_theme['background-color']), color(next_theme['background-color']), main_val);
     let c_text = lerpColor(color(current_theme['color']), color(next_theme['color']), main_val);
     body.style('background-color', c_back);
