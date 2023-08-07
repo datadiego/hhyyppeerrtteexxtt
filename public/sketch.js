@@ -82,44 +82,32 @@ function setup(){
     body.style('background-color', '#000000');
     body.style('color', '#ffffff');
     // a.style('color', '#ffffff');
-    // current_theme = themes[themes.length - 1]
-    // shuffle(themes, true)
-    limitHeight = document.body.scrollHeight - window.innerHeight
-    let seccion = limitHeight / themes.length
-    console.log(seccion, limitHeight, themes.length)
-    for(let i = 0; i < themes.length; i++){
-        themes[i]['height'] = seccion * i
-    }
+    current_theme = themes[themes.length - 1]
+    next_theme = random(themes)
+    
     
 }
 
 function draw(){
     // console.log(window.scrollY)
-    //check scrollY value, compare it with the themes array checking the height value, if it's bigger, change theme and update current_theme
-    if(window.scrollY > themes[themes.length - 1]['height']){
-        // console.log('change theme')
-        current_theme = themes[themes.length - 1]
-        next_theme = themes[0]
-        main_val = 0
-        wait_time = 0
-    }else{
-        for(let i = 0; i < themes.length; i++){
-            if(window.scrollY > themes[i]['height'] && window.scrollY < themes[i+1]['height']){
-                // console.log('change theme')
-                current_theme = themes[i]
-                next_theme = themes[i+1]
-                main_val = (window.scrollY - themes[i]['height']) / (themes[i+1]['height'] - themes[i]['height'])
-                wait_time = 0
+    if(main_val < 1){
+        main_val += 0.01;
+        }
+        if (main_val > 1) {
+            wait_time += 1;
+            if(wait_time > 200){
+                main_val = 0;
+                wait_time = 0;
+                current_theme = next_theme;
+                next_theme = random(themes);
             }
         }
-    }
-      
+
     let c_back = lerpColor(color(current_theme['background-color']), color(next_theme['background-color']), main_val);
     let c_text = lerpColor(color(current_theme['color']), color(next_theme['color']), main_val);
     body.style('background-color', c_back);
     body.style('color', c_text);
-    
-    for(let i = 0; i < a.length; i++){
+    for (let i = 0; i < a.length; i++) {
         a[i].style('color', c_text);
     }
 
