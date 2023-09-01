@@ -93,15 +93,18 @@ function setup(){
 function draw(){
     // console.log(window.scrollY)
     if(main_val < 1){
-        main_val += 0.01;
+        main_val += 0.006;
         }
         if (main_val > 1) {
             wait_time += 1;
-            if(wait_time > 200){
+            if(wait_time > 20){
                 main_val = 0;
                 wait_time = 0;
                 current_theme = next_theme;
                 next_theme = random(themes);
+                while(next_theme == current_theme){
+                    next_theme = random(themes);
+                }
             }
         }
 
